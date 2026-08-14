@@ -5,7 +5,6 @@ CV numérique interactif construit avec Next.js 16 (App Router), TypeScript, Tai
 ## Démarrer en local
 
 ```bash
-npm install
 npm run dev
 ```
 Ouvrir http://localhost:3000
@@ -22,13 +21,6 @@ Toutes les informations personnelles sont centralisées dans `src/data/` :
 
 Aucune modification de composant n'est nécessaire pour changer le contenu.
 
-## Remplacer le CV PDF
-
-Le fichier `public/cv-kamdem-hans.pdf` est un **placeholder**. Remplacez-le par votre vrai CV (même nom de fichier, ou mettez à jour `cvFile` dans `profile.ts`).
-
-## Placeholders à compléter
-
-Recherchez `TODO` dans `src/data/` pour repérer : email, GitHub, LinkedIn, établissement, certification.
 
 ## Build production
 
