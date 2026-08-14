@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  /* Dark, high-contrast theme */
+  --paper: #0F0F0F; /* page background: deep near-black */
+  --ink: #e6eef8; /* primary text: soft white/blue */
+  --muted: #202020; /* muted surfaces */
+  --muted-foreground: #94a3b8; /* subdued text */
+  --line: #202020; /* subtle dividers */
+  --accent: #0DA574; /* bright, vivid blue accent */
+  --whatsapp: #16a34a;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-whatsapp: var(--whatsapp);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-up: fade-up 0.6s ease-out both;
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+* {
+  border-color: var(--line);
+}
+
+body {
+  background: radial-gradient(1200px 600px at 10% 10%, #0f111455, transparent), var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 80%, black);
+  color: white;
+}
+
+/* Reveal-on-scroll : désactivé par défaut, activé par IntersectionObserver via la classe "in-view" */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
