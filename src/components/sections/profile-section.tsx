@@ -24,11 +24,11 @@ export function ProfileSection() {
               {profile.tagline}
             </p>
           </div>
-          <div>
+          <div className=" bg-muted flex items-center justify-center rounded-full  md:mt-0">
             <img
               src={profile.img}
               alt={profile.name}
-              className="mt-4 rounded-full border-2 w-50 h-50 border-accent shadow-lg"
+              className="mt-4 ml-6 mb-0.5 rounded-full  w-50 h-50  "
             />
           </div>
         </div>
